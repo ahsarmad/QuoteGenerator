@@ -1,9 +1,9 @@
 import React from "react";
 
-const Footer = () => {
+const Footer = ({ name }) => {
   return (
     <footer>
-      <p>Quote Generator by Sarmad &copy; 2022 </p>
+      <p>Quote Generator by Sarmad &copy; 2022</p>
     </footer>
   );
 };

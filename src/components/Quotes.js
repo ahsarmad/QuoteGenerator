@@ -1,10 +1,10 @@
 import React from "react";
 
-const Quotes = () => {
+const Quotes = ({ data }) => {
   return (
     <div>
-      <blockquote>This is a great quote!</blockquote>
-      <p>-Your name</p>
+      <blockquote>{data[0].quote}</blockquote>
+      <p>-{data[0].name}</p>
     </div>
   );
 };
