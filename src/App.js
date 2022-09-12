@@ -1,11 +1,16 @@
-import logo from "./logo.svg";
 import "./App.css";
+import Quotes from "./components/Quotes";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Quote Generator</h1>
-    </div>
+    <section>
+      <div className="App">
+        <h1>Quote Generator</h1>
+        <Quotes />
+        <button>Generate!</button>
+      </div>
+      {/* Footer */}
+    </section>
   );
 }
 
