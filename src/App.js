@@ -1,44 +1,37 @@
 import "./App.css";
 import Quotes from "./components/Quotes";
 import Footer from "./components/Footer";
+import { data } from "./data/data";
+import { useState } from "react";
+import { useEffect } from "react";
+import "./styles/styles.css";
 
 function App() {
-  const data = [
-    {
-      name: "Sarmad",
-      quote: '"This is an awesome quote"',
-    },
-    {
-      name: "John Doe",
-      quote: '"This is a good quote"',
-    },
-    {
-      name: "Mouse",
-      quote: '"This is a mouse quote"',
-    },
-    {
-      name: "Dog",
-      quote: '"This is a dog quote"',
-    },
-    {
-      name: "Cat",
-      quote: '"This is a cat quote"',
-    },
-    {
-      name: "Bear",
-      quote: '"This is a bear quote"',
-    },
-  ];
+  const [quote, setQuote] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+  const randomize = () => {
+    const randomNumber = Math.floor(Math.random() * data.length);
+    setQuote(data[randomNumber]);
+  };
+
+  useEffect(() => {
+    randomize();
+    setIsLoading(false);
+  }, []);
 
   return (
-    <section>
-      <div className="App">
+    <section className="page">
+      <div className="container">
         <h1>Quote Generator</h1>
-        {/* Quote */}
-        <Quotes data={data} />
-        <button>Generate!</button>
+        {isLoading ? (
+          <p className="loading">Quote now loading...</p>
+        ) : (
+          <div className="quote-container">
+            <Quotes data={quote} />
+          </div>
+        )}
+        <button onClick={randomize}>Generate!</button>
       </div>
-      {/* Footer */}
       <Footer />
     </section>
   );

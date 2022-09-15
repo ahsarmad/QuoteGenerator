@@ -1,0 +1,84 @@
+body {
+    font-family: Fira code;
+}
+
+.page {
+    background-color: #7cc2ad;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 95vh;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 80%;
+}
+
+h1 {
+    color: #267a6f;
+    font-size: 50px;
+    margin: 0 0 100px;
+}
+
+.quote-container {
+    margin-bottom: 50px;
+    }
+
+blockquote {
+    color: white;
+    font-family: open sans;
+    font-style: italic;
+    margin: 0;
+    font-size: 60px;
+}
+
+.name {
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #267a6f;
+    position: relative;
+    width: 150px;
+    height: 75px;
+    color: white;
+    border: 1px solid rgba(59, 58, 58, 0.46);
+    border-radius: 20px;
+    box-shadow: -15px 7.5px 15px grey;
+    top: 0;
+    transition: top ease 0.5s;
+    cursor: pointer;
+    font-family: fira code;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 15px;
+    text-transform: uppercase;
+    
+}
+
+button:hover{
+    background-color: white;
+    color: #267a6f;
+    top: -8px;
+}
+
+footer {
+    color: dimgray;
+    text-align: center;
+}
+
+.loading {
+    color: white;
+    font-size: 20px;
+}
