@@ -1,7 +1,8 @@
 export const data = [
   {
     name: "Sarmad",
-    quote: '"Hi I am sarmad"',
+    quote:
+      "'You know, Hobbes, some days even my lucky rocketship underpants don't help.'",
   },
   {
     name: "John Doe",
