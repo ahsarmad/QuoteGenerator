@@ -9,13 +9,22 @@ body {
   background-color: #09111b;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
+}
+video {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  padding: none;
+  position: absolute;
+  object-fit: cover;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  height: 95vh;
+  height: 100vh;
   justify-content: center;
   margin: 0 auto;
   max-width: 1200px;
@@ -24,15 +33,20 @@ body {
 }
 
 h1 {
-  top: 30px;
-  position: relative;
+  transform: translateX(550px);
+  top: 50px;
+  width: 500px;
   text-align: center;
+  margin: 0px auto;
+  display: block;
+  display: flex;
+  /* top: 40px;
+  right: 450px;*/
+  position: absolute;
   font-weight: 200;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 80px;
-  margin: 0;
-  margin: 0 0 150px;
   color: #fff;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff,
     0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
@@ -46,7 +60,8 @@ h1 {
   @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap");
 
   float: relative;
-  transform: translateY(-1em);
+
+  transform: translateY(1.5em);
   color: white;
   font-family: nunito;
   margin: 0;
@@ -63,12 +78,12 @@ h1 {
   text-shadow: -5px 10px 15px dimgrey;
   float: right;
   overflow: hidden;
-  transform: translateY(-1em);
+  transform: translateY(1em);
 }
 
 button {
   padding: 20px;
-  top: 0;
+  /* transform: translateX(1em); */
   cursor: pointer;
   font-family: Nunito;
   font-weight: bold;
@@ -84,8 +99,8 @@ button {
   --neon-border-color: #08f;
   background-color: #09111b;
   position: absolute;
-  left: 625px;
-  top: 650px;
+  left: 650px;
+  top: 700px;
   width: 200px;
   height: 100px;
   color: white;
@@ -164,8 +179,14 @@ button:hover:before {
 }
 
 footer {
+  position: absolute;
+  justify-content: center;
+  bottom: 0;
+  align-items: center;
+  right: 600px;
   color: dimgray;
   text-align: center;
+  display: flex;
 }
 
 .loading {
