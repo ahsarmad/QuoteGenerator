@@ -1,7 +1,9 @@
 import Footer from "./components/Footer";
+import videoLights from "./assets/pixels-flying.mp4";
+import Main from "./components/Main";
 import { useState } from "react";
 import { useEffect } from "react";
-import "./styles/styles.css";
+import "./styles.css";
 import axios from "axios";
 
 const App = () => {
@@ -33,24 +35,30 @@ const App = () => {
 
   return (
     <section className="page">
-      <h1>Quote Generator</h1>
-      <div className="container">
-        {isLoading ? (
-          <p className="loading">Quote now loading...</p>
-        ) : (
-          <div className="quote-container">
-            <div className="quote">
-              <blockquote>{quote}</blockquote>
+      {/* <div>
+        <Main />
+      </div> */}
+      <div>
+        <video src={videoLights} autoPlay loop muted />
+        <h1>Quote Generator</h1>
+        <div className="container">
+          {isLoading ? (
+            <p className="loading">Quote now loading...</p>
+          ) : (
+            <div className="quote-container">
+              <div className="quote">
+                <blockquote>{quote}</blockquote>
+              </div>
+              <div className="author">
+                <blockquote>{author}</blockquote>
+              </div>
+              {/* <button onClick={quoteApi}>Generate!</button> */}
             </div>
-            <div className="author">
-              <blockquote>{author}</blockquote>
-            </div>
-            {/* <button onClick={quoteApi}>Generate!</button> */}
-          </div>
-        )}
+          )}
+          <Footer />
+        </div>
+        <button onClick={quoteApi}>Generate!</button>
       </div>
-      <Footer />
-      <button onClick={quoteApi}>Generate!</button>
     </section>
   );
 };
