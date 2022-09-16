@@ -1,40 +1,57 @@
-import "./App.css";
-import Quotes from "./components/Quotes";
 import Footer from "./components/Footer";
-import { data } from "./data/data";
 import { useState } from "react";
 import { useEffect } from "react";
 import "./styles/styles.css";
+import axios from "axios";
 
-function App() {
-  const [quote, setQuote] = useState();
+const App = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const randomize = () => {
-    const randomNumber = Math.floor(Math.random() * data.length);
-    setQuote(data[randomNumber]);
+  const [quote, setQuote] = useState("");
+  const [author, setAuthor] = useState("");
+
+  const quoteApi = async () => {
+    let arrayOfQuotes = [];
+    try {
+      const data = await axios.get("https://api.quotable.io/random");
+      arrayOfQuotes = data.data;
+      console.log(arrayOfQuotes);
+    } catch (error) {
+      console.log(error);
+    }
+    try {
+      setQuote(arrayOfQuotes.content);
+      setAuthor(arrayOfQuotes.author);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
-    randomize();
+    quoteApi();
     setIsLoading(false);
   }, []);
 
   return (
     <section className="page">
+      <h1>Quote Generator</h1>
       <div className="container">
-        <h1>Quote Generator</h1>
         {isLoading ? (
           <p className="loading">Quote now loading...</p>
         ) : (
           <div className="quote-container">
-            <Quotes data={quote} />
+            <div className="quote">
+              <blockquote>{quote}</blockquote>
+            </div>
+            <div className="author">
+              <blockquote>{author}</blockquote>
+            </div>
+            {/* <button onClick={quoteApi}>Generate!</button> */}
           </div>
         )}
-        <button onClick={randomize}>Generate!</button>
       </div>
       <Footer />
+      <button onClick={quoteApi}>Generate!</button>
     </section>
   );
-}
-
+};
 export default App;
